@@ -376,6 +376,15 @@ def get_board_items_query(board_id: Union[str, int], query_params: Optional[Mapp
                     name
                     column_values {
                         id
+                        ...on DependencyValue {
+                            display_value
+                        }
+                        ...on MirrorValue {
+                            display_value
+                        }
+                        ...on BoardRelationValue {
+                            display_value
+                        }
                         text
                         type
                         value
