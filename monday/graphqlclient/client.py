@@ -43,7 +43,7 @@ class GraphQLClient:
             ]
 
         try:
-            response = requests.request("POST", self.endpoint, headers=headers, data=payload, files=files)
+            response = requests.request("POST", self.endpoint, headers=headers, data=payload, files=files, timeout=60)
             response.raise_for_status()
             response_data = response.json()
             self._throw_on_error(response_data)
